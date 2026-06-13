@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerTwin AI – Career Intelligence Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="brand-icon">CT</div>
+      <span class="brand-name">CareerTwin <span class="brand-ai">AI</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#analysis">Analysis</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#admin">Admin</a></li>
+    </ul>
+    <div class="nav-status" id="healthStatus">
+      <span class="status-dot"></span>
+      <span class="status-text">Checking API...</span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Powered by Azure AI · Microsoft Inspired</div>
+      <h1 class="hero-title">
+        Your Career,<br />
+        <span class="gradient-text">Twin-Powered</span>
+      </h1>
+      <p class="hero-subtitle">
+        CareerTwin AI analyzes your resume, scores your placement readiness,
+        closes skill gaps, and builds a personalized learning roadmap — all in one intelligent platform.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="scrollToSection('dashboard')">
+          Analyze My Profile
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-ghost" onclick="scrollToSection('admin')">View Placement Stats</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num">500+</span><span class="stat-label">Students Analyzed</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="stat-num">78%</span><span class="stat-label">Avg. Readiness Score</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="stat-num">95%</span><span class="stat-label">Placement Success</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <div class="fc-icon">📊</div>
+        <div class="fc-label">Readiness Score</div>
+        <div class="fc-value">82%</div>
+      </div>
+      <div class="floating-card card-2">
+        <div class="fc-icon">🎯</div>
+        <div class="fc-label">Skill Match</div>
+        <div class="fc-value">85%</div>
+      </div>
+      <div class="floating-card card-3">
+        <div class="fc-icon">🚀</div>
+        <div class="fc-label">Roadmap Ready</div>
+        <div class="fc-value">Active</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STUDENT DASHBOARD ========== -->
+  <section class="section" id="dashboard">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Student Portal</div>
+        <h2 class="section-title">Your Career Dashboard</h2>
+        <p class="section-desc">Fill in your profile and let CareerTwin AI do the heavy lifting.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Profile Form -->
+        <div class="glass-card form-card">
+          <h3 class="card-title">Profile & Resume</h3>
+
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="studentName" class="form-input" placeholder="e.g. Mohammad Zishan" />
+            <span class="form-error" id="nameError"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Branch</label>
+              <select id="branch" class="form-input">
+                <option value="">Select Branch</option>
+                <option>Computer Science</option>
+                <option>Information Technology</option>
+                <option>Electronics & Communication</option>
+                <option>Mechanical Engineering</option>
+                <option>Civil Engineering</option>
+                <option>Data Science</option>
+              </select>
+              <span class="form-error" id="branchError"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Year</label>
+              <select id="year" class="form-input">
+                <option value="">Select Year</option>
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+              </select>
+              <span class="form-error" id="yearError"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Skills <span class="form-hint">(comma separated)</span></label>
+            <input type="text" id="skills" class="form-input" placeholder="e.g. Java, Spring Boot, React, SQL" />
+            <span class="form-error" id="skillsError"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Upload Resume</label>
+            <div class="file-drop" id="fileDrop" onclick="document.getElementById('resumeFile').click()">
+              <div class="file-drop-icon">📄</div>
+              <div class="file-drop-text">Click to upload or drag & drop</div>
+              <div class="file-drop-hint">PDF, DOC, DOCX · Max 5MB</div>
+            </div>
+            <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFileSelect(event)" />
+            <div class="file-selected" id="fileSelected" style="display:none">
+              <span class="file-name" id="fileName"></span>
+              <button class="file-remove" onclick="removeFile()">✕</button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary btn-full" id="analyzeBtn" onclick="analyzeResume()">
+              <span class="btn-text">Analyze Resume</span>
+              <span class="btn-loader" style="display:none">
+                <span class="spinner"></span> Analyzing...
+              </span>
+            </button>
+            <div class="btn-row">
+              <button class="btn-secondary" id="readinessBtn" onclick="checkReadiness()">Check Readiness</button>
+              <button class="btn-secondary" id="roadmapBtn" onclick="generateRoadmap()">Generate Roadmap</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats Panel -->
+        <div class="stats-panel">
+          <div class="glass-card stat-card" id="scoreCard">
+            <div class="stat-card-header">
+              <span class="stat-card-icon">🏆</span>
+              <span class="stat-card-label">Overall Readiness</span>
+            </div>
+            <div class="stat-card-score" id="overallScore">--</div>
+            <div class="stat-card-sub">Submit profile to generate score</div>
+          </div>
+
+          <div class="glass-card stat-card mini">
+            <div class="mini-stat">
+              <span class="mini-label">Skill Match</span>
+              <span class="mini-value" id="skillMatchVal">--%</span>
+            </div>
+            <div class="mini-bar">
+              <div class="mini-bar-fill" id="skillMatchBar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <div class="glass-card stat-card mini">
+            <div class="mini-stat">
+              <span class="mini-label">Resume Quality</span>
+              <span class="mini-value" id="resumeQualVal">--%</span>
+            </div>
+            <div class="mini-bar">
+              <div class="mini-bar-fill blue" id="resumeQualBar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <div class="glass-card stat-card mini">
+            <div class="mini-stat">
+              <span class="mini-label">Interview Readiness</span>
+              <span class="mini-value" id="interviewVal">--%</span>
+            </div>
+            <div class="mini-bar">
+              <div class="mini-bar-fill teal" id="interviewBar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== READINESS SCORE CARD ========== -->
+  <section class="section bg-alt" id="scoreSection">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">AI Assessment</div>
+        <h2 class="section-title">Placement Readiness Score</h2>
+        <p class="section-desc">A 360° evaluation of your placement potential.</p>
+      </div>
+
+      <div id="readinessResult" class="readiness-grid hidden">
+        <div class="glass-card readiness-main">
+          <div class="radial-score-wrap">
+            <svg class="radial-svg" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50" />
+              <circle class="radial-fill" id="radialCircle" cx="60" cy="60" r="50"
+                stroke-dasharray="314" stroke-dashoffset="314" />
+            </svg>
+            <div class="radial-label">
+              <span class="radial-score" id="radialScore">0</span>
+              <span class="radial-unit">/ 100</span>
+            </div>
+          </div>
+          <div class="readiness-label" id="readinessLabel">—</div>
+          <div class="readiness-meta" id="readinessMeta"></div>
+        </div>
+
+        <div class="readiness-metrics">
+          <div class="glass-card metric-card">
+            <div class="metric-icon" style="background: rgba(99,102,241,0.15)">🎯</div>
+            <div class="metric-info">
+              <div class="metric-name">Skill Match</div>
+              <div class="metric-value" id="smValue">0%</div>
+            </div>
+            <div class="metric-bar-wrap">
+              <div class="metric-bar"><div class="metric-bar-fill purple" id="smBar" style="width:0%"></div></div>
+            </div>
+          </div>
+
+          <div class="glass-card metric-card">
+            <div class="metric-icon" style="background: rgba(59,130,246,0.15)">📄</div>
+            <div class="metric-info">
+              <div class="metric-name">Resume Quality</div>
+              <div class="metric-value" id="rqValue">0%</div>
+            </div>
+            <div class="metric-bar-wrap">
+              <div class="metric-bar"><div class="metric-bar-fill blue" id="rqBar" style="width:0%"></div></div>
+            </div>
+          </div>
+
+          <div class="glass-card metric-card">
+            <div class="metric-icon" style="background: rgba(20,184,166,0.15)">💬</div>
+            <div class="metric-info">
+              <div class="metric-name">Interview Readiness</div>
+              <div class="metric-value" id="irValue">0%</div>
+            </div>
+            <div class="metric-bar-wrap">
+              <div class="metric-bar"><div class="metric-bar-fill teal" id="irBar" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="readinessPlaceholder" class="empty-state">
+        <div class="empty-icon">📊</div>
+        <div class="empty-text">Run "Check Readiness" to see your score</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILL GAP ANALYSIS ========== -->
+  <section class="section" id="analysis">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Gap Intelligence</div>
+        <h2 class="section-title">Skill Gap Analysis</h2>
+        <p class="section-desc">Know exactly what's between you and your dream role.</p>
+      </div>
+
+      <div id="resumeAnalysisResult" class="analysis-grid hidden">
+        <div class="glass-card strengths-card">
+          <h3 class="card-title">
+            <span class="card-title-icon">✅</span> Your Strengths
+          </h3>
+          <div id="strengthsList" class="tag-list"></div>
+        </div>
+
+        <div class="glass-card gaps-card">
+          <h3 class="card-title">
+            <span class="card-title-icon">⚡</span> Missing Skills
+          </h3>
+          <div id="missingSkillsList" class="tag-list"></div>
+        </div>
+
+        <div class="glass-card industry-card">
+          <h3 class="card-title">
+            <span class="card-title-icon">📈</span> Industry Demand
+          </h3>
+          <div id="industryDemandList" class="demand-list"></div>
+        </div>
+      </div>
+
+      <div id="analysisPlaceholder" class="empty-state">
+        <div class="empty-icon">🔍</div>
+        <div class="empty-text">Run "Analyze Resume" to uncover skill gaps</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEARNING ROADMAP ========== -->
+  <section class="section bg-alt" id="roadmap">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">AI Roadmap</div>
+        <h2 class="section-title">Your Learning Roadmap</h2>
+        <p class="section-desc">A step-by-step path from where you are to where you want to be.</p>
+      </div>
+
+      <div id="roadmapResult" class="roadmap-timeline hidden"></div>
+
+      <div id="roadmapPlaceholder" class="empty-state">
+        <div class="empty-icon">🗺️</div>
+        <div class="empty-text">Run "Generate Roadmap" to build your path</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CAREER RECOMMENDATIONS ========== -->
+  <section class="section" id="careers">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Career Intelligence</div>
+        <h2 class="section-title">Career Recommendations</h2>
+        <p class="section-desc">Roles, paths, and certifications matched to your profile.</p>
+      </div>
+
+      <div class="career-grid">
+        <div class="glass-card career-card">
+          <div class="career-card-icon">💼</div>
+          <h3 class="career-card-title">Top Job Roles</h3>
+          <ul class="career-list" id="jobRolesList">
+            <li>Full Stack Developer</li>
+            <li>Java Backend Engineer</li>
+            <li>Cloud Solutions Architect</li>
+            <li>Software Development Engineer</li>
+            <li>DevOps Engineer</li>
+          </ul>
+        </div>
+
+        <div class="glass-card career-card">
+          <div class="career-card-icon">🗂️</div>
+          <h3 class="career-card-title">Career Paths</h3>
+          <div class="career-path-list">
+            <div class="career-path-item">
+              <div class="path-step">Junior Dev</div>
+              <div class="path-arrow">→</div>
+              <div class="path-step">Senior Dev</div>
+              <div class="path-arrow">→</div>
+              <div class="path-step">Architect</div>
+            </div>
+            <div class="career-path-item">
+              <div class="path-step">Data Analyst</div>
+              <div class="path-arrow">→</div>
+              <div class="path-step">ML Engineer</div>
+              <div class="path-arrow">→</div>
+              <div class="path-step">AI Lead</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card career-card">
+          <div class="career-card-icon">🎓</div>
+          <h3 class="career-card-title">Certifications</h3>
+          <ul class="career-list cert-list">
+            <li><span class="cert-badge ms">MS</span> Azure Developer Associate (AZ-204)</li>
+            <li><span class="cert-badge aws">AWS</span> AWS Solutions Architect</li>
+            <li><span class="cert-badge gcp">GCP</span> Google Cloud Professional</li>
+            <li><span class="cert-badge java">☕</span> Oracle Java SE 17 Developer</li>
+            <li><span class="cert-badge spring">🌱</span> Spring Professional Certification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN DASHBOARD ========== -->
+  <section class="section bg-alt" id="admin">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Placement Cell</div>
+        <h2 class="section-title">Admin Dashboard</h2>
+        <p class="section-desc">Real-time placement intelligence for your institution.</p>
+      </div>
+
+      <div class="admin-stats-grid" id="adminStatsGrid">
+        <div class="glass-card admin-stat-card">
+          <div class="admin-stat-icon">👥</div>
+          <div class="admin-stat-value" id="totalStudents">—</div>
+          <div class="admin-stat-label">Total Students</div>
+        </div>
+        <div class="glass-card admin-stat-card highlight">
+          <div class="admin-stat-icon">✅</div>
+          <div class="admin-stat-value" id="placementReady">—</div>
+          <div class="admin-stat-label">Placement Ready</div>
+        </div>
+        <div class="glass-card admin-stat-card">
+          <div class="admin-stat-icon">📊</div>
+          <div class="admin-stat-value" id="avgScore">—</div>
+          <div class="admin-stat-label">Avg. Readiness Score</div>
+        </div>
+        <div class="glass-card admin-stat-card">
+          <div class="admin-stat-icon">📋</div>
+          <div class="admin-stat-value" id="gapReports">—</div>
+          <div class="admin-stat-label">Skill Gap Reports</div>
+        </div>
+      </div>
+
+      <div class="admin-actions">
+        <button class="btn-primary" onclick="loadAdminStats()">
+          <span>Refresh Stats</span>
+        </button>
+        <button class="btn-ghost" onclick="exportReport()">Export Report</button>
+      </div>
+
+      <!-- Placement Insights -->
+      <div class="glass-card insights-card">
+        <h3 class="card-title">Placement Insights</h3>
+        <div class="insights-grid">
+          <div class="insight-item">
+            <div class="insight-label">Top Recruiting Domain</div>
+            <div class="insight-value">Software Engineering</div>
+            <div class="insight-bar"><div class="insight-bar-fill" style="width:82%"></div></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-label">Most In-Demand Skill</div>
+            <div class="insight-value">Java + Spring Boot</div>
+            <div class="insight-bar"><div class="insight-bar-fill" style="width:75%"></div></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-label">Cloud Readiness</div>
+            <div class="insight-value">Azure / AWS</div>
+            <div class="insight-bar"><div class="insight-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-label">AI/ML Interest</div>
+            <div class="insight-value">Generative AI Focus</div>
+            <div class="insight-bar"><div class="insight-bar-fill" style="width:68%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TOAST NOTIFICATION ========== -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="brand-icon">CT</div>
+            <span class="brand-name">CareerTwin <span class="brand-ai">AI</span></span>
+          </div>
+          <p class="footer-tagline">AI-powered career intelligence for the next generation of engineers.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <div class="footer-col-title">Platform</div>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#analysis">Skill Analysis</a>
+            <a href="#roadmap">Roadmap</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Resources</div>
+            <a href="#careers">Career Paths</a>
+            <a href="#admin">Admin Panel</a>
+            <a href="#hero">About</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 CareerTwin AI · Built for Microsoft Agents League Hackathon</span>
+        <span class="footer-tech">Java Spring Boot · Azure AI · Vanilla JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
