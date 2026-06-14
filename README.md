@@ -8,14 +8,6 @@
 
 > **Empowering Students. Enabling Placements. Transforming Careers.**
 
-<br/>
-
-[![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-Powered-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Backend-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![Power BI](https://img.shields.io/badge/Power%20BI-Analytics-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com/)
-[![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 <br/>
 
@@ -162,31 +154,97 @@ CareerTwin AI is engineered on a foundation of cutting-edge AI capabilities, bui
 CareerTwin AI is designed on a modern, layered enterprise architecture built for scalability, modularity, and intelligent orchestration.
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        🌐 OUTPUT LAYER                              │
-│          Career Reports · Placement Dashboards · Insights           │
-├─────────────────────────────────────────────────────────────────────┤
-│                      📊 ANALYTICS LAYER                             │
-│         Power BI · Placement Forecasting · KPI Dashboards           │
-├─────────────────────────────────────────────────────────────────────┤
-│                      🗄️ DATABASE LAYER                              │
-│            MySQL · Student Profiles · Placement Records             │
-├─────────────────────────────────────────────────────────────────────┤
-│                      ⚙️ BACKEND LAYER                               │
-│         Java Spring Boot · REST APIs · Business Logic               │
-├─────────────────────────────────────────────────────────────────────┤
-│               🧠 CAREERTWIN INTELLIGENCE ENGINE                      │
-│    Career Engine · Resume Engine · Skill Engine · Analytics Engine  │
-├─────────────────────────────────────────────────────────────────────┤
-│                     🤖 AI AGENT LAYER                               │
-│   Azure OpenAI · Azure AI Services · NLP · Recommendation Engine    │
-├─────────────────────────────────────────────────────────────────────┤
-│                     🖥️ FRONTEND LAYER                               │
-│     React.js · Student Portal · Placement Cell Dashboard · UI/UX    │
-├─────────────────────────────────────────────────────────────────────┤
-│                       👤 USER LAYER                                 │
-│          Students · Placement Officers · Admins · Recruiters        │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           🌐 OUTPUT & REPORTING LAYER                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • Placement Readiness Reports                                              │
+│  • Career Recommendations                                                   │
+│  • Learning Roadmaps                                                        │
+│  • Placement Analytics Dashboards                                           │
+│  • Institutional Insights                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            📊 ANALYTICS LAYER                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • Power BI Dashboards                                                      │
+│  • Placement Forecasting                                                    │
+│  • Student Performance Analytics                                            │
+│  • Department-Wise Reports                                                  │
+│  • KPI Monitoring & Insights                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                             🗄 DATABASE LAYER                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • MySQL Database                                                           │
+│  • Student Profiles                                                         │
+│  • Resume Repository                                                        │
+│  • Placement Records                                                        │
+│  • Learning Progress Data                                                   │
+│  • Analytics Data Store                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              ⚙ BACKEND LAYER                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • Java Spring Boot                                                         │
+│  • REST APIs                                                                │
+│  • Authentication & Authorization                                           │
+│  • Business Logic Services                                                  │
+│  • Placement Management Services                                            │
+│  • Data Processing & Integration                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    🧠 CAREERTWIN INTELLIGENCE ENGINE                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • Career Intelligence Engine                                               │
+│  • Resume Intelligence Engine                                               │
+│  • Skill Gap Analysis Engine                                                │
+│  • Learning Recommendation Engine                                           │
+│  • Placement Readiness Engine                                               │
+│  • Career Analytics Engine                                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              🤖 AI AGENT LAYER                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • Azure OpenAI                                                             │
+│  • Azure AI Services                                                        │
+│  • Natural Language Processing (NLP)                                        │
+│  • Recommendation Engine                                                    │
+│  • AI Career Advisor Agent                                                  │
+│  • Resume Analysis Agent                                                    │
+│  • Skill Gap Detection Agent                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                             🖥 FRONTEND LAYER                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • React.js Web Application                                                 │
+│  • Student Portal                                                           │
+│  • Placement Cell Dashboard                                                 │
+│  • Admin Dashboard                                                          │
+│  • Responsive UI/UX                                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+▲
+│
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                               👤 USER LAYER                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  • Students                                                                 │
+│  • Placement Officers                                                       │
+│  • Faculty Members                                                          │
+│  • Recruiters                                                               │
+│  • Administrators                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Layer Descriptions
@@ -345,17 +403,3 @@ The future of placement is not reactive. It is **predictive, personalized, and p
 
 </div>
 
----
-
-## 📞 Contact
-
-<div align="center">
-
-**Developed with ❤️ by**
-
-### Snehal Yadav
-
-*AI Engineer · Full Stack Developer · Career Tech Innovator*
-
-[![Email](https://img.shields.io/badge/Email-yadavsnehal137%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yadavsnehal137@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](ht
