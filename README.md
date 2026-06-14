@@ -145,7 +145,7 @@ CareerTwin AI is engineered on a foundation of cutting-edge AI capabilities, bui
 
 CareerTwin AI is designed on a modern, layered enterprise architecture built for scalability, modularity, and intelligent orchestration.
 
-```mermaid
+---
 Layer| Components
 👤 User Layer| Students, Placement Officers, Faculty Members, Recruiters, Administrators
 🖥 Frontend Layer| React.js, Student Portal, Placement Dashboard, Admin Dashboard, Responsive UI
