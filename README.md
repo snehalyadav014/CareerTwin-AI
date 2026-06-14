@@ -8,6 +8,7 @@
 <br/>
 </div>
 ---
+
 ## 🌟 Overview
 
 **CareerTwin AI** is an enterprise-grade, AI-powered career intelligence and placement management platform purpose-built for academic institutions, students, and placement professionals. By harnessing the capabilities of **Azure OpenAI**, **Microsoft Azure AI Services**, and a sophisticated **Multi-Agent AI Architecture**, CareerTwin AI transforms how institutions manage placements and how students navigate their career journeys.
