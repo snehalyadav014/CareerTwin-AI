@@ -232,7 +232,7 @@ The future of placement is not reactive. It is **predictive, personalized, and p
 
 | Resource | Link |
 |----------|------|
-| 🌐 **Live Demo** |https://career-twin-p0ra25lhg-yadavsnehal137-1960s-projects.vercel.app/|
+| 🌐 **Live Demo** |https://snehalyadav014.github.io/CareerTwin-AI/|
 | ▶️ **Demo Video** |https://youtu.be/08s0P4X8JEs?feature=shared |
 
 </div>
