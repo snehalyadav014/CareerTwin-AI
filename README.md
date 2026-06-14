@@ -6,7 +6,7 @@
 
 <br/>
 
- **Empowering Students. Enabling Placements. Transforming Careers.**
+> **Empowering Students. Enabling Placements. Transforming Careers.**
 
 <br/>
 [![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-Visit%20Now-0078D4?style=flat-square)](https://add-demo-url-here)
